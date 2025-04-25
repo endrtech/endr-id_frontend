@@ -31,7 +31,7 @@ export default function Home() {
         if (!redirectUrl) return
 
         const timeout = setTimeout(() => {
-            router.replace(redirectUrl + "?source=endr-id")
+            router.push(redirectUrl + "?source=endr-id")
         }, 5000)
 
         return () => clearTimeout(timeout) // cleanup if component unmounts before timeout
