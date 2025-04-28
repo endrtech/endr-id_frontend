@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sign in to ENDR ID",
+  title: "Welcome to ENDR ID",
   description: "The way to sign in to ENDR services.",
 };
 
