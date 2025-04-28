@@ -37,20 +37,26 @@ export default function Home() {
   const router = useRouter();
   const [getAppConfigData, setAppConfigData] = useState<any>();
   const params = useSearchParams();
-  const clientId = params.get("clientId");
+  const clientIdParam = params.get("clientId");
   const redirectUrl = params.get("redirectUrl");
 
   const user = useAuth();
 
   useEffect(() => {
     const getData = async () => {
-      const getAppConfigData = await getAppConfig(clientId);
-      setAppConfigData(getAppConfigData);
-      window.localStorage.setItem("clientID", getAppConfigData.applicationID);
-      window.localStorage.setItem(
-        "redirectUrl",
-        redirectUrl ? redirectUrl : getAppConfigData.afterAuthUrl,
-      );
+      const clientId = window.localStorage.getItem("clientID");
+      if (clientId) {
+        const getAppConfigFn = await getAppConfig(clientId);
+        setAppConfigData(getAppConfigFn);
+      } else {
+        const getAppConfigFn = await getAppConfig(clientIdParam);
+        window.localStorage.setItem("clientID", getAppConfigFn.applicationID);
+        window.localStorage.setItem(
+          "redirectUrl",
+          redirectUrl ? redirectUrl : getAppConfigFn.afterAuthUrl,
+        );
+        setAppConfigData(getAppConfigFn);
+      }
     };
 
     getData();
