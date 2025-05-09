@@ -265,7 +265,15 @@ export default function Home() {
                   <Clerk.Input type="checkbox" required />
                   <Clerk.Label asChild>
                     <Label>
-                      I agree to the Terms and Conditions, and Privacy Policy.
+                      I agree to the{" "}
+                      <a href="https://endr.tech/legal/terms" target="_blank">
+                        Terms and Conditions
+                      </a>
+                      , and{" "}
+                      <a href="https://endr.tech/legal/privacy" target="_blank">
+                        Privacy Policy
+                      </a>
+                      .
                     </Label>
                   </Clerk.Label>
                   <Clerk.FieldError className="block text-sm text-destructive" />
