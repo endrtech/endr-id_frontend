@@ -44,7 +44,7 @@ export default function Home() {
 
   useEffect(() => {
     const getData = async () => {
-      const clientId = window.localStorage.getItem("clientID");
+      const clientId = clientIdParam;
       if (clientId) {
         const getAppConfigFn = await getAppConfig(clientId);
         setAppConfigData(getAppConfigFn);
@@ -71,6 +71,8 @@ export default function Home() {
       className={`${geistSans.className} text-white w-full h-screen flex flex-col items-center justify-center`}
       style={{
         background: `url('${getAppConfigData?.applicationWallpaper}')`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
       }}
     >
       <SignIn.Root>
