@@ -44,19 +44,13 @@ export default function Home() {
 
   useEffect(() => {
     const getData = async () => {
-      const clientId = clientIdParam;
-      if (clientId) {
-        const getAppConfigFn = await getAppConfig(clientId);
-        setAppConfigData(getAppConfigFn);
-      } else {
-        const getAppConfigFn = await getAppConfig(clientIdParam);
-        window.localStorage.setItem("clientID", getAppConfigFn.applicationID);
-        window.localStorage.setItem(
-          "redirectUrl",
-          redirectUrl ? redirectUrl : getAppConfigFn.afterAuthUrl,
-        );
-        setAppConfigData(getAppConfigFn);
-      }
+      const getAppConfigFn = await getAppConfig(clientIdParam);
+      window.localStorage.setItem("clientID", getAppConfigFn.applicationID);
+      window.localStorage.setItem(
+        "redirectUrl",
+        redirectUrl ? redirectUrl : getAppConfigFn.afterAuthUrl,
+      );
+      setAppConfigData(getAppConfigFn);
     };
 
     getData();
