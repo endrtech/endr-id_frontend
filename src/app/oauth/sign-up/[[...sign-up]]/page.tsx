@@ -73,6 +73,8 @@ export default function Home() {
       className={`${geistSans.className} text-white w-full h-screen flex flex-col items-center justify-center`}
       style={{
         background: `url('${getAppConfigData?.applicationWallpaper}')`,
+        backgroundSize: "100% 100%",
+        backgroundRepeat: "no-repeat",
       }}
     >
       <SignUp.Root>
