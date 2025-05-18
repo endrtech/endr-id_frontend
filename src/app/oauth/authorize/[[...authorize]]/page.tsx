@@ -62,10 +62,10 @@ export default function Home() {
 
   return (
     <div
-      className={`${geistSans.className} text-white w-full h-screen flex flex-col items-center justify-center`}
+      className={`${geistSans.className} text-white w-full h-screen flex flex-col items-center bg-cover justify-center`}
       style={{
         background: `url('${getAppConfigData?.applicationWallpaper}')`,
-        backgroundSize: "100% 100%",
+        backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
     >
