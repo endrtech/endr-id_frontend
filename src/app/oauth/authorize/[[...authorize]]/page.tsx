@@ -66,6 +66,7 @@ export default function Home() {
       style={{
         background: `url('${getAppConfigData?.applicationWallpaper}')`,
         backgroundPosition: "center",
+        backgroundSize: '200% 200%',
         backgroundRepeat: "no-repeat",
       }}
     >
